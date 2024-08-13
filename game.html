@@ -6,7 +6,12 @@
 	</head>
 	<body>
 		<div class="mold" id="game1" >
-			<img v-for="pic in pics" v-on:click="showImage(pic.id)" :src="pic.source" class="furit" :id="`card-${pic.id}`">
+			<img 
+			v-for="pic in pics" 
+			v-on:click="showImage(pic.id)"
+			:src="pic.source"
+			class="furit" 
+			:id="`card-${pic.id}`">
 		</div>
 		<script src="game.js"></script>
 	</body>
