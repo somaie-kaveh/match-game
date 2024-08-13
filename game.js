@@ -4,35 +4,42 @@ var game = new Vue({
 		firstClick: false,
 		firstCardId:'',
 		pics: [
-			{id:0, source: ''},
-			{id:1, source: ''},
-			{id:2, source: ''},
-			{id:3, source: ''},
-			{id:4, source: ''},
-			{id:5, source: ''},
-			{id:6, source: ''},
-			{id:7, source: ''},
-			{id:8, source: ''},
-			{id:9, source: ''},
-			{id:10, source: ''},
-			{id:11, source: ''},
+			{id:0, source: './picgame/basket.jpg'},
+			{id:1, source: './picgame/basket.jpg'},
+			{id:2, source: './picgame/basket.jpg'},
+			{id:3, source: './picgame/basket.jpg'},
+			{id:4, source: './picgame/basket.jpg'},
+			{id:5, source: './picgame/basket.jpg'},
+			{id:6, source: './picgame/basket.jpg'},
+			{id:7, source: './picgame/basket.jpg'},
+			{id:8, source: './picgame/basket.jpg'},
+			{id:9, source: './picgame/basket.jpg'},
+			{id:10, source: './picgame/basket.jpg'},
+			{id:11, source: './picgame/basket.jpg'},
 		]
 	},
 	methods:{
-		showImage: function(env) {
-			this.pics[env].source = `./picgame/furit${env > 5 ? env-6 : env}.jpg`;
+		showImage: function(cardId) {
+			document.getElementById(`card-${cardId}`).style.transform = 'rotateY(180deg)';
+			this.pics[cardId].source = `./picgame/furit${cardId > 5 ? cardId-6 : cardId}.jpg`;
 			this.firstClick = !this.firstClick;
 			if (this.firstClick === false) {
 				var firstCard = this.pics[this.firstCardId].source;
-				var secondCard =  this.pics[env].source;
+				var secondCard =  this.pics[cardId].source;
 				if( secondCard != firstCard) {
 					setTimeout(() => {
-						this.pics[env].source = '';
-						this.pics[this.firstCardId].source = '';
+						document.getElementById(`card-${cardId}`).style.transform = 'rotateY(90deg)';
+						document.getElementById(`card-${this.firstCardId}`).style.transform = 'rotateY(90deg)';
+						setTimeout(() => {
+							this.pics[cardId].source = './picgame/basket.jpg';
+							this.pics[this.firstCardId].source = './picgame/basket.jpg';
+							document.getElementById(`card-${cardId}`).style.transform = 'rotateY(0deg)';
+							document.getElementById(`card-${this.firstCardId}`).style.transform = 'rotateY(0deg)';
+						}, 100);
 					}, 500);
 				}
 			} else {
-				this.firstCardId = env;
+				this.firstCardId = cardId;
 			}
 		}
 	}
