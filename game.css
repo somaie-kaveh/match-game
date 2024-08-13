@@ -1,0 +1,14 @@
+.furit {
+	width: 30%;
+	height: 120px;
+	border: 2px solid gray;
+}
+.imgfurit{
+	width: 100%;
+	height: 120px;
+}
+.mold {
+	width: 100%;
+	height: max-content;
+	border: 2px solid grey;
+}
