@@ -18,3 +18,27 @@
 	display: block;
 	margin-top: 70px;
 }
+.congrajulation {
+	width: 79%;
+	height: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: -600px;
+	z-index: 80;
+	position: absolute;
+	opacity:.9;
+	background-color: hsl(40, 77%, 78%);
+	border: none;
+}
+.won {
+	opacity: 0.8;
+	z-index: 100;
+	font-size: 60px;
+	font-weight: 100;
+	position: absolute;
+	margin-top: -352px;
+	margin-left: 292px;
+	color:rgb(255, 128, 0);
+	font-family: "Matemasie", sans-serif;
+}

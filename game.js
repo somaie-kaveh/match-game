@@ -5,18 +5,18 @@ var game = new Vue({
 		firstCardId:'',
 		isProssesing: false,
 		pics: [
-			{id:0, source: './picgame/basket.jpg', save: false},
-			{id:1, source: './picgame/basket.jpg', save: false},
-			{id:2, source: './picgame/basket.jpg', save: false},
-			{id:3, source: './picgame/basket.jpg', save: false},
-			{id:4, source: './picgame/basket.jpg', save: false},
-			{id:5, source: './picgame/basket.jpg', save: false},
-			{id:6, source: './picgame/basket.jpg', save: false},
-			{id:7, source: './picgame/basket.jpg', save: false},
-			{id:8, source: './picgame/basket.jpg', save: false},
-			{id:9, source: './picgame/basket.jpg', save: false},
-			{id:10, source: './picgame/basket.jpg', save: false},
-			{id:11, source: './picgame/basket.jpg', save: false},
+			{id:0, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:1, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:2, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:3, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:4, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:5, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:6, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:7, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:8, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:9, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:10, source: './picgame/basket.jpg', save: false, tasks:false},
+			{id:11, source: './picgame/basket.jpg', save: false, tasks:false},
 		]
 	},
 	methods:{
@@ -32,6 +32,8 @@ var game = new Vue({
 				if(firstCard === secondCard){
 					this.pics[cardId].save = true;
 					this.pics[this.firstCardId].save = true;
+					this.pics[cardId].tasks = true;
+					this.pics[this.firstCardId].tasks = true;
 					this.firstCardId='';
 					this.isProssesing = false;
 				} else if( secondCard != firstCard) {
@@ -53,5 +55,11 @@ var game = new Vue({
 				this.isProssesing = false;
 			}
 		},
+	
+	},
+	computed: {
+		showalart: function() {
+			return this.pics.every(pic => pic.tasks);
+		}
 	}
 })
